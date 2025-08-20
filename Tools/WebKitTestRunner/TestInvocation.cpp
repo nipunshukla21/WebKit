@@ -708,6 +708,11 @@ void TestInvocation::didReceiveMessageFromInjectedBundle(WKStringRef messageName
         return;
     }
 
+    if (WKStringIsEqualToUTF8CString(messageName, "DumpFullScreenOrigin")) {
+        TestController::singleton().dumpFullScreenOrigin();
+        return;
+    }
+
     if (WKStringIsEqualToUTF8CString(messageName, "WaitBeforeFinishingFullscreenExit")) {
         TestController::singleton().waitBeforeFinishingFullscreenExit();
         return;
